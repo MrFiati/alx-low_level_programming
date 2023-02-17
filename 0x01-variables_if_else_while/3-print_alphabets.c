@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ *Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -10,13 +10,15 @@ int main(void)
 
 	for (x = 'a' ; x <= 'z' ; x++)
 	{
-		if (x != 'q' && x != 'e')
-		{
 		putchar(x);
-		}
+	}
+	for (x = 'A' ; x <= 'Z' ; x++)
+	{
+		putchar(x);
 	}
 
 	putchar('\n');
 
 	return (0);
 }
+
