@@ -1,4 +1,4 @@
-#includi "main.h"
+#include "main.h"
 /**
  * _isalpha - states whether letter or not
  * @c: passes value to function
