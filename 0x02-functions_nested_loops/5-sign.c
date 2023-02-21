@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_sign - prints sign of int or 0 and returns -1,0 or 1
  * @n: passes value to function
