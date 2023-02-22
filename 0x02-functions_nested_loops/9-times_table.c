@@ -1,11 +1,10 @@
 #include "main.h"
-
 /**
  * jack_bauer - prints every minute of jack bauer's day
  *
  * Return: nothing
  */
-void jack_bauer(void)
+void time_table(void)
 {
 	int a, b, c, d;
 
