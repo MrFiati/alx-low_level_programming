@@ -1,50 +1,42 @@
 #include "main.h"
 /**
- * print_times_table - prints out the n times table, starting with 0
- * @n: times table
+ * print_times_table  - give you the multiplication table conditinated by n
+ * @n: input that configure the table
  */
 void print_times_table(int n)
 {
-int x, y, z, k, t;
+	int x, y, z, uni, dec, cen;
 
-	for (x = 0; x <= n; x++)
+	if (n <= 15 && n >= 0)
 	{
-		for (y = 0; y <= n; y++)
+		for (x = 0; x <= n; x++)
 		{
-			z = x * y;
-			if (z == 0 && y == 0)
-				_putchar(z + '0');
-			else if (z > 99)
+			for (y = 0; y <= n; y++)
 			{
-				k = z % 10;
-				t = (z / 10) % 10;
-				z /= 100;
-				_putchar(',');
-				_putchar(' ');
-				_putchar(z + '0');
-				_putchar(t + '0');
-				_putchar(k + '0');
-			}
-			else if (z > 9)
-			{
-				k = z % 10;
-				z /= 10;
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(z + '0');
-				_putchar(k + '0');
-
-			}
-			else
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(z + '0');
-			}
-		}
-		_putchar('\n');
-	}
+				z = x * y;
+				cen = z / 100;
+				dec = (z / 10);
+				dec = dec % 10;
+				uni = z % 10;
+				if ((y > 0) && (n > 0))
+				{ _putchar(' ');
+					if (!(cen >= 1))
+						_putchar(' ');
+					if (cen >= 1)
+						_putchar('0' + cen);
+					if (!(dec >= 1) && !(cen >= 1))
+						_putchar(' ');
+					if (!(dec >= 1) && (cen >= 1))
+						_putchar('0' + dec);
+					if (dec >= 1)
+						_putchar('0' + dec);
+					_putchar('0' + uni);
+					if (!(y == n))
+						_putchar(','); }
+				else if ((y == 0) && (n > 0))
+				{ _putchar('0' + z);
+					_putchar(','); }
+				else if ((y == 0) && (n == 0))
+					_putchar('0'); }
+			_putchar('\n'); } }
 }
