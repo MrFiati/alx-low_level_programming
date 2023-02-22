@@ -1,47 +1,53 @@
-#include "main.h"
 #include <stdio.h>
-
 /**
- * main - calls fibonacci
- *
- * Return: always 0
+ * numLength - returns the lenth of string
+ * @num : operand number
+ * Return: number of digits
+ */
+int numLength(int num)
+{
+	int length = 0;
+	if (!num)
+	{
+		return (1);
+	}
+	while (num)
+	{
+		num = num / 10;
+		length += 1;
+	}
+	return (length);
+}
+/**
+ *  *main - prints the first 98 fibonaci sequences
+ *  Return: 0
  */
 int main(void)
 {
-	fibonacci_print_98();
-	return (0);
-}
-
-/**
- * fibonacci_print_98 - print first 98 fibonacci numbers
- *
- * Return: void
- */
-void fibonacci_print_98(void)
-{
-	unsigned long i, a1, a2, b1, b2, c1, c2, m, r;
-
-	m = 1000000000000000000;
-	a1 = 0;
-	a2 = 1;
-	b1 = 0;
-	b2 = 2;
-	for (i = 0; i < 98; i++)
+	unsigned long f1 = 1, f2 = 2, tmp, mx = 100000000, f1o = 0, f2o = 0, tmpo = 0;
+	short int i = 1, initial0s;
+	while (i <= 98)
 	{
-		if (a1)
-			printf("%lu", a1);
-		printf("%lu", a2);
-		if (i < 97)
+		if (f1o > 0)
+			printf("%lu", f1o);
+		initial0s = numLength(mx) - 1 - numLength(f1);
+		while (f1o > 0 && initial0s > 0)
+		{
+			printf("%i", 0);
+			initial0s--;
+		}
+		printf("%lu", f1);
+		tmp = (f1 + f2) % mx;
+		tmpo = f1o + f2o + (f1 + f2) / mx;
+		f1 = f2;
+		f1o = f2o;
+		f2 = tmp;
+		f2o = tmpo;
+		if (i != 98)
 			printf(", ");
-		c1 = a1;
-		c2 = a2;
-		a1 = b1;
-		a2 = b2;
-		b1 += c1;
-		b2 += c2;
-		r = b2 / m;
-		b2 %= m;
-		b1 += r;
+		else
+			printf("\n");
+		i++;
 	}
-	printf("\n");
+	return (0);
 }
