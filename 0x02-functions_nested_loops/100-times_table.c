@@ -3,7 +3,7 @@
  * print_times_table  - give you the multiplication table conditinated by n
  * @n: input that configure the table
  */
-void times_table(void)
+void times_table(int n)
 {
 	int x, y, z, uni, dec, cen;
 
