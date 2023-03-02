@@ -4,7 +4,7 @@
 /**
  * _strcmp - compares two strings
  * @s1: first string
- * @s2: second string, fiati
+ * @s2: second string
  * Return: size difference of strings
  */
 
