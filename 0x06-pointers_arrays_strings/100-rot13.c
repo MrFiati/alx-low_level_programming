@@ -1,32 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * print_number - print any integer using putchar
- * @n: integer to be printed
+ * rot13 - encoder rot13
+ * @s: pointer to string params
+ * Return: *s
  */
 
-void print_number(int n)
+char *rot13(char *s)
 {
-	int count, y, k;
-
-	y = 1000000000;
-
-	if (n == 0)
-		_putchar('0');
-	else if (n > 0)
-		n *= -1;
-	else
-		_putchar('-');
-	for (count = 0; count < 10; count++, y /= 10)
+	int i;
+	int j;
+	char data1[] =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] =
+"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (n / y == 0)
-			continue;
-		else
+		for (j = 0; j < 52; j++)
 		{
-			k = (-(n / y) % 10);
-			if (k < 0)
-				k *= -1;
-			_putchar(k + '0');
+			if (s[i] == data1[j])
+			{
+				s[i] = datarot[j];
+				break;
+			}
 		}
 	}
+	return (s);
 }
