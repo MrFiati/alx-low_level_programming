@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * infinite_add - prints the add of two numbers
  * @n1: input string value 1
