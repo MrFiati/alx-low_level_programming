@@ -1,14 +1,14 @@
 #include "main.h"
+
 /**
- * _abs - computes the absolute value of an int
- * @n: one night in bangkok and the worlds your oyster
- *
- * Return: abs of num
+ * _abs - determine the absolute value of an integer
+ * @i: variable to determine the absolute value of an integer
+ * Return: i if succesful
  */
-int _abs(int n)
+
+int _abs(int i)
 {
-	if (n >= 0)
-		return (n);
-	else
-		return (-1 * n);
+if (i < 0)
+i *= -1;
+return (i);
 }
