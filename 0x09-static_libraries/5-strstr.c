@@ -1,23 +1,50 @@
 #include "main.h"
 
 /**
- * _strpbrk - locates a character in a string
- * @s: pointer where we search for charachter
- * @accept: character we search for
- * Return: NULL if character is not found, return pointer
+ * *_strstr - function locates a substring
+ *
+ *@haystack: char * pointer
+ *@needle: char * pointer
+ * Return: pointer to located substring or NULL
  */
 
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	char *s1 = s - 1;
 	int i;
 
-	do {
-		s1++;
-		for (i = 0; *(accept + i) != '\0'; i++)
-			if (*s1 == *(accept + i))
-				return (s1);
-	} while (*s1 != '\0');
-
+	for (; *haystack != '\0'; haystack++)
+	{
+		if (haystack[i] == needle[i])
+		{
+			for (i = 0; needle[i] != '\0'; i++)
+			{
+				return (haystack);
+			}
+		}
+	}
 	return (0);
+}
+
+
+
+/**
+ * _strlen - function returns length of a string
+ *
+ *@s: char pointer
+ *
+ * Return: length
+ *
+ */
+
+int _strlen(char *s)
+{
+	char *copy_s = s;
+	int length = 0;
+
+	while (*copy_s != '\0')
+	{
+		length++;
+		copy_s++;
+	}
+	return (length);
 }
