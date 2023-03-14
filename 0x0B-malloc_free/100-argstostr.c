@@ -1,43 +1,45 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "holberton.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 /**
- * main - print min number of coins to return change using 25, 10, 5, 2, 1
- * @argc:  the size of the argv array, the number of command line arguments
- * @argv: an array containing the program command line arguments
- * Return: 1 if error 0 if success
+ * *argstostr - function concatenates all the arguments
+ *
+ *@ac: int equivalent to argc
+ *@av: dble ptr equivalent to argv
+ *
+ * Return: ptr or NULL
  */
 
-int main(int argc, char *argv[])
+char *argstostr(int ac, char **av)
 {
-	int cents, remainder, coins;
-	int quarters, dimes, nickles, twos, pennies;
+	char *pav;
+	int x, y;
+	int z = 0;
 
-	if (argc != 2)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	for (x = 0; x < ac; x++)
 	{
-		printf("Error\n");
-		return (1);
+		for (y = 0; av[x][y] != '\0'; y++)
+		{
+			z++;
+		}
 	}
-	else
-		cents = atoi(argv[1]);
-
-	if (cents <= 0)
+	pav = malloc(sizeof(char) * (z + ac) + 1);
+	if (pav == NULL)
+		return (NULL);
+	z = 0;
+	for (x = 0; x < ac; x++)
 	{
-		printf("0\n");
-		return (0);
+		for (y = 0; av[x][y] != '\0'; y++, z++)
+		{
+			pav[z] = av[x][y];
+		}
+		pav[z] = '\n';
+		z++;
 	}
-	quarters = cents / 25;
-	remainder = cents % 25;
-	dimes = remainder / 10;
-	remainder = remainder % 10;
-	nickles = remainder / 5;
-	remainder = remainder % 5;
-	twos = remainder / 2;
-	remainder = remainder % 2;
-	pennies = remainder / 1;
-
-	coins = quarters + dimes + nickles + twos + pennies;
-
-	printf("%d\n", coins);
-	return (0);
+	pav[z] = '\0';
+	return (pav);
 }
