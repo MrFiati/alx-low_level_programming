@@ -1,89 +1,43 @@
-#include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
-/**
- * letters - number of letters in a string
- * @str: string input
- * Return: number
- */
-int letters(char *str)
-{
-	int c = 0;
+#include <stdlib.h>
 
-	while (*(str + c) != '\0')
-	{
-		if (*(str + c) == ' ')
-			break;
-		c++;
-	}
-	return (c);
-}
 /**
- * words - number of words in a string
- * @str: string input
- * Return: number
+ * main - print min number of coins to return change using 25, 10, 5, 2, 1
+ * @argc:  the size of the argv array, the number of command line arguments
+ * @argv: an array containing the program command line arguments
+ * Return: 1 if error 0 if success
  */
-int words(char *str)
-{
-	int c = 0, w = 0;
 
-	while (*(str + c) != '\0')
-	{
-		if (*(str + c) == ' ')
-			c++;
-		else
-		{
-			if (str[c + 1] == ' ' || str[c + 1] == '\0')
-				w++;
-			c++;
-		}
-	}
-	return (w);
-}
-/**
- * strtow - create a matrix from arguments
- * @str: string input
- * Return: return a pointer of pointer
- */
-char **strtow(char *str)
+int main(int argc, char *argv[])
 {
-	char **p;
-	int w = 0, c = 0, l = 0, a = 0, j = 0, var;
+	int cents, remainder, coins;
+	int quarters, dimes, nickles, twos, pennies;
 
-	var = 0;
-	if (*str == '\0' || str == NULL)
-		return (NULL);
-	w = words(str);
-	p = (char **) malloc((w + 1) * sizeof(char *));
-	if (!p)
+	if (argc != 2)
 	{
-		free(p);
-		return (NULL);
+		printf("Error\n");
+		return (1);
 	}
-	while (*(str + c) != '\0')
+	else
+		cents = atoi(argv[1]);
+
+	if (cents <= 0)
 	{
-		if (*(str + c) == ' ')
-			c++;
-		else
-		{
-			var = 1;
-			l = letters(str + c);
-			p[a] = (char *) malloc(sizeof(char) * (l + 1));
-			if (!p[a])
-			{
-				for (j = 0; j <= a; j++)
-					free(p[j]);
-				free(p);
-				return (NULL);
-			}
-			for (j = 0; j < l; j++, c++)
-				p[a][j] = str[c];
-			p[a][j] = '\0';
-			a++;
-		}
+		printf("0\n");
+		return (0);
 	}
-	if (var != 1)
-		return (NULL);
-	p[a] = NULL;
-	return (p);
+	quarters = cents / 25;
+	remainder = cents % 25;
+	dimes = remainder / 10;
+	remainder = remainder % 10;
+	nickles = remainder / 5;
+	remainder = remainder % 5;
+	twos = remainder / 2;
+	remainder = remainder % 2;
+	pennies = remainder / 1;
+
+	coins = quarters + dimes + nickles + twos + pennies;
+
+	printf("%d\n", coins);
+	return (0);
 }
