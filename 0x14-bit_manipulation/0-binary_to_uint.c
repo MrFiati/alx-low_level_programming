@@ -15,9 +15,9 @@ unsigned int binary_to_uint(const char *b)
 	if (b == NULL)
 		return (0);
 
-	for (len = 0; b[len]; len++);
+	for (len = 0; b[len]; len++)
+		;
 	len--;
-
 	for (place = 1, unit = 0; len >= 0; len--)
 	{
 		if (b[len] == '0')
@@ -32,7 +32,6 @@ unsigned int binary_to_uint(const char *b)
 		continue;
 	}
 	return (0);
-	
 	}
 	return (unit);
 }
