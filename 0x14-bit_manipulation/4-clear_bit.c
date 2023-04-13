@@ -12,9 +12,9 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 	if (index > 63)
 	{
-		return (- 1);
+		return (-1);
 	}
-	for (i =63; (int)i >= 0; i--)
+	for (i = 63; (int)i >= 0; i--)
 	{
 		if (i == index)
 			aux = aux << 1;
