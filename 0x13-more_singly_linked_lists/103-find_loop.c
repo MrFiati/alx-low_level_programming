@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 /**
- * find_listint_loop - Entry Point
+ * find_listint_loop - Entry Point...
  * Description: Function that finds the loop in a linked list
  * @head: linked list to search for
  *
