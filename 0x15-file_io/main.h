@@ -1,6 +1,5 @@
 #ifndef MY_MAIN_H
 #define MY_MAIN_H
-
 /* Define buffer size for task 3 */
 #define BUFFER_SIZE 1024
 
